@@ -1,4 +1,4 @@
-from honeypots import Cowrie, Kippo, Dionaea, Conpot
+from honeypots import Amun, Conpot, Cowrie, Dionaea, Kippo
 from passive_attacks import AttackOrchestrator as PassiveAttackOrchestrator
 from active_attacks import AttackOrchestrator as ActiveAttackOrchestrator
 from report_generator import ReportGenerator
@@ -14,10 +14,11 @@ class Honeyscanner:
 
     def create_honeypot(self, honeypot_type, honeypot_version, honeypot_ip, honeypot_port, honeypot_username, honeypot_password):  
         honeypot_class_map = {  
-            'cowrie': Cowrie,  
-            'kippo': Kippo,
+            'amun':    Amun,
+            'conpot':  Conpot,
+            'cowrie':  Cowrie,
             'dionaea': Dionaea,
-            'conpot': Conpot
+            'kippo':   Kippo,
         }  
         if honeypot_type not in honeypot_class_map:  
             supported_honeypots = ', '.join(honeypot_class_map.keys())

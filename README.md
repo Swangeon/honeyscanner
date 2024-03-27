@@ -78,19 +78,21 @@ The following instructions will guide you through the process of setting up Hone
 
 - Before you run Honeyscanner, you need to control or own a Honeypot instance. For testing purposes, this guide assumes that the targeted Honeypot runs on a Docker container on the local machine, where Honeyscanner runs.
 
-- To test Honeyscanner against the latest [Cowrie](https://github.com/cowrie/cowrie) version, you can use the official Docker Image [here](https://hub.docker.com/r/cowrie/cowrie), pull it locally and run a Docker container with it.
+- For testing Honeyscanner against [Amun](https://github.com/zeroq/amun), use the following Docker Image in DockerHub [here](https://hub.docker.com/r/swangeon/amun-honeypot), pull it locally and run a Docker container with it.
 
-- If you prefer to test Honeyscanner against [Kippo](https://github.com/desaster/kippo), you can use the following Docker Image in DockerHub [here](https://hub.docker.com/r/aristofanischionis/kippo).
+- For testing Honeyscanner against [Conpot](https://github.com/mushorg/conpot), use the following Docker Image in DockerHub [here](https://hub.docker.com/r/honeynet/conpot), pull it locally and run a Docker container with it.
 
-- For testing Honeyscanner against [Dionaea](https://github.com/DinoTools/dionaea), use the following Docker Image in DockerHub [here](https://hub.docker.com/r/dinotools/dionaea).
+- To test Honeyscanner against the latest [Cowrie](https://github.com/cowrie/cowrie) version, use the official Docker Image [here](https://hub.docker.com/r/cowrie/cowrie), pull it locally and run a Docker container with it.
 
-- For testing Honeyscanner against [Conpot](https://github.com/mushorg/conpot), use the following Docker Image in DockerHub [here](https://hub.docker.com/r/honeynet/conpot). 
+- For testing Honeyscanner against [Dionaea](https://github.com/DinoTools/dionaea), use the following Docker Image in DockerHub [here](https://hub.docker.com/r/dinotools/dionaea), pull it locally and run a Docker container with it.
+
+- For testing Honeyscanner against [Kippo](https://github.com/desaster/kippo), use the following Docker Image in DockerHub [here](https://hub.docker.com/r/aristofanischionis/kippo), pull it locally and run a Docker container with it.
 
 - After running a Honeypot using Docker containers locally, you will be able to specify the following parameters: `--target_ip 127.0.0.1 --port 2222` when running the Honeyscanner.
 
 > **__NOTE__:** NEVER RUN `Honeyscanner` AGAINST HONEYPOTS YOU DO NOT OWN, OR YOU DO NOT HAVE EXPLICIT PERMISSION TO TEST.
 
-> **__NOTE__:** Currently `Honeyscanner` can actively attack the `Dionaea` and the `Conpot` honeypots only by using the DoS attack module. The way it works is that initially `Honeyscanner` uses nmap to find the open ports on the targeted honeypot, then tries to DoS all ports simultaneously. In order to run the nmap scanner, run `Honeyscanner` with root privileges for scanning `Dionaea` and `Conpot`. This provides nmap with deeper view of the services that run behind each port on the honeypot.
+> **__NOTE__:** Currently `Honeyscanner` can actively attack the `Dionaea`, `Amun`, and the `Conpot` honeypots only by using the DoS attack module. The way it works is that initially `Honeyscanner` uses nmap to find the open ports on the targeted honeypot, then tries to DoS all ports simultaneously. In order to run the nmap scanner, run `Honeyscanner` with root privileges for scanning `Dionaea`, `Amun`, and `Conpot`. This provides nmap with deeper view of the services that run behind each port on the honeypot.
 
 > **__NOTE__:** For `Dionaea` only version 0.11.0 is supported at this stage of `Honeyscanner`. For `Conpot`, all versions up to `0.6.0` are supported.
 
@@ -109,6 +111,9 @@ sudo python3 main.py --honeypot dionaea --honeypot_version 0.11.0 --target_ip 12
 ```
 ```bash
 sudo python3 main.py --honeypot conpot --honeypot_version 0.6.0 --target_ip 127.0.0.1 --port 2323
+```
+```bash
+sudo python3 main.py --honeypot amun --honeypot_version 0.1.0 --target_ip 127.0.0.1 --port 2323
 ```
 
 ## Contributors
